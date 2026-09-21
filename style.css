@@ -1,0 +1,1099 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --wine: #2b1414;
+  --deep: #170b0a;
+  --gold: #d7b56d;
+  --gold-light: #f1d99c;
+  --cream: #fbf5e8;
+  --ivory: #fffaf0;
+  --text: #3d2924;
+  --muted: #7d6960;
+  --border: rgba(180, 142, 68, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================================================
+   OPENING SCREEN
+   ========================================================= */
+
+.opening {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  text-align: center;
+  padding: 32px;
+  color: var(--gold-light);
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(215, 181, 109, 0.16),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #170b0a,
+      #3a1916 50%,
+      #160908
+    );
+
+  position: relative;
+  overflow: hidden;
+}
+
+.opening::before,
+.opening::after {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(215, 181, 109, 0.25);
+  transform: rotate(45deg);
+}
+
+.opening::before {
+  top: -230px;
+  left: -130px;
+}
+
+.opening::after {
+  bottom: -230px;
+  right: -130px;
+}
+
+.opening-ornament {
+  color: var(--gold);
+  font-size: 28px;
+  margin: 22px 0;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+.opening h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(64px, 12vw, 115px);
+  font-weight: 400;
+  line-height: 0.95;
+  margin: 18px 0;
+}
+
+.opening h1 span {
+  color: var(--gold);
+}
+
+.opening-text {
+  max-width: 500px;
+  margin: 0 auto 30px;
+  color: rgba(255, 250, 240, 0.78);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.gold-btn,
+.outline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 25px;
+
+  border: 1px solid var(--gold);
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.gold-btn {
+  background: var(--gold);
+  color: var(--deep);
+}
+
+.gold-btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.hero {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  text-align: center;
+
+  color: white;
+
+  /*
+    HERO IMAGE FIX
+    ----------------
+    The original couple photo is portrait-oriented.
+    16% keeps the groom's head/face visible while
+    avoiding the previous extreme top positioning.
+  */
+
+  background:
+    linear-gradient(
+      rgba(23, 8, 7, 0.46),
+      rgba(23, 8, 7, 0.80)
+    ),
+    url("assets/couple.jpg") center 16% / cover no-repeat;
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+   ========================================================= */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 12%,
+      rgba(12, 5, 4, 0.62) 100%
+    );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(900px, 92%);
+
+  padding: 30px;
+
+  /*
+    Move the text slightly upward so that
+    it doesn't sit directly on the groom's face.
+  */
+
+  transform: translateY(-55px);
+
+  text-align: center;
+}
+
+.deities {
+  margin: 14px 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  color: var(--gold-light);
+}
+
+.invite-label {
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  margin-top: 30px;
+}
+
+.hero h1 {
+  font-family: "Great Vibes", cursive;
+
+  font-size: clamp(80px, 14vw, 150px);
+
+  font-weight: 400;
+
+  line-height: 0.9;
+
+  margin: 18px 0 10px;
+
+  /*
+    Keep the names above the image subjects
+    visually as much as possible.
+  */
+
+  text-shadow:
+    0 3px 15px rgba(0, 0, 0, 0.28);
+}
+
+.hero h1 span {
+  color: var(--gold-light);
+}
+
+.script {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px;
+
+  font-style: italic;
+}
+
+.hero-date {
+  margin-top: 26px;
+
+  letter-spacing: 5px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: var(--gold-light);
+}
+
+.scroll-link {
+  display: inline-block;
+
+  margin-top: 42px;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+.section {
+  padding: 100px 22px;
+}
+
+.section-inner {
+  width: min(1120px, 100%);
+
+  margin: auto;
+}
+
+.narrow {
+  max-width: 760px;
+
+  text-align: center;
+}
+
+.section h2 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(42px, 6vw, 68px);
+
+  font-weight: 500;
+
+  color: var(--wine);
+
+  line-height: 1;
+
+  margin: 14px 0 20px;
+}
+
+.section-subtitle {
+  color: var(--muted);
+
+  font-size: 14px;
+}
+
+.gold-line {
+  width: 85px;
+
+  height: 1px;
+
+  margin: 20px auto;
+
+  background: var(--gold);
+}
+
+.flourish {
+  color: var(--gold);
+
+  margin-top: 28px;
+
+  font-size: 23px;
+}
+
+
+/* =========================================================
+   INTRO SECTION
+   ========================================================= */
+
+.intro {
+  background: var(--ivory);
+}
+
+.intro p:not(.eyebrow) {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 21px;
+
+  line-height: 1.65;
+
+  color: #59443b;
+
+  margin-top: 14px;
+}
+
+
+/* =========================================================
+   EVENTS SECTION
+   ========================================================= */
+
+.events-section {
+  background: #f3e8d3;
+
+  text-align: center;
+}
+
+.events-grid {
+  margin-top: 45px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.event-card {
+  position: relative;
+
+  padding: 40px 24px 32px;
+
+  background: rgba(255, 250, 240, 0.92);
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 18px 45px rgba(67, 36, 21, 0.08);
+
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-7px);
+}
+
+.event-card.featured {
+  background: var(--wine);
+
+  color: white;
+
+  transform: translateY(-14px);
+
+  box-shadow:
+    0 22px 55px rgba(43, 20, 20, 0.2);
+}
+
+.event-card.featured:hover {
+  transform: translateY(-21px);
+}
+
+.event-number {
+  position: absolute;
+
+  top: 15px;
+
+  right: 18px;
+
+  color: var(--gold);
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+}
+
+.event-icon {
+  font-size: 31px;
+
+  margin-bottom: 16px;
+}
+
+.event-type {
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: var(--gold);
+
+  font-weight: 700;
+}
+
+.event-card h3 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 31px;
+
+  margin: 12px 0 16px;
+
+  font-weight: 600;
+}
+
+.event-date {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  margin-bottom: 7px;
+}
+
+.event-time {
+  font-size: 12px;
+
+  color: var(--gold);
+
+  font-weight: 700;
+
+  margin-bottom: 20px;
+}
+
+.event-place {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  line-height: 1.45;
+
+  color: #70584d;
+
+  min-height: 55px;
+}
+
+.featured .event-place {
+  color: rgba(255, 250, 240, 0.76);
+}
+
+.outline-btn {
+  margin-top: 25px;
+
+  color: var(--wine);
+
+  background: transparent;
+}
+
+.featured .outline-btn {
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   COUPLE SECTION
+   ========================================================= */
+
+.couple-section {
+  background: var(--wine);
+
+  color: white;
+}
+
+.couple-layout {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+.couple-photo-wrap {
+  position: relative;
+
+  max-width: 580px;
+
+  margin: auto;
+}
+
+.couple-photo {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 4 / 5;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  position: relative;
+
+  z-index: 1;
+
+  border: 1px solid rgba(215, 181, 109, 0.65);
+}
+
+.photo-frame {
+  position: absolute;
+
+  inset: 18px -18px -18px 18px;
+
+  border: 1px solid rgba(215, 181, 109, 0.55);
+}
+
+.couple-copy .eyebrow {
+  color: var(--gold);
+}
+
+.couple-copy h2 {
+  color: white;
+
+  font-family: "Great Vibes", cursive;
+
+  font-size: clamp(65px, 9vw, 100px);
+
+  line-height: 0.72;
+
+  margin: 25px 0 35px;
+}
+
+.couple-copy h2 span {
+  color: var(--gold);
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 0.55em;
+}
+
+.couple-description,
+.small-note {
+  color: rgba(255, 250, 240, 0.76);
+
+  line-height: 1.9;
+
+  font-size: 14px;
+}
+
+.mini-divider {
+  color: var(--gold);
+
+  margin: 25px 0;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
+.countdown-section {
+  text-align: center;
+
+  background: var(--ivory);
+}
+
+.countdown {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(80px, 130px));
+
+  justify-content: center;
+
+  gap: 16px;
+
+  margin: 45px auto 20px;
+}
+
+.countdown div {
+  border: 1px solid var(--border);
+
+  padding: 20px 10px;
+
+  background: #fffdf7;
+}
+
+.countdown strong {
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+
+  color: var(--wine);
+
+  font-size: 48px;
+
+  font-weight: 500;
+}
+
+.countdown span {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+.countdown-message {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   FAMILY SECTION
+   ========================================================= */
+
+.family-section {
+  background: #efe0c7;
+
+  text-align: center;
+}
+
+.family-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+
+  margin-top: 45px;
+}
+
+.family-card {
+  padding: 34px 25px;
+
+  border: 1px solid var(--border);
+
+  background: rgba(255, 250, 240, 0.72);
+}
+
+.family-card h3 {
+  color: var(--gold);
+
+  letter-spacing: 2px;
+
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 17px;
+}
+
+.family-card p {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  line-height: 1.45;
+
+  margin: 8px 0;
+}
+
+
+/* =========================================================
+   DETAILS SECTION
+   ========================================================= */
+
+.details-section {
+  background: var(--ivory);
+
+  text-align: center;
+}
+
+.details-list {
+  max-width: 750px;
+
+  margin: 35px auto 0;
+
+  border-top: 1px solid var(--border);
+}
+
+.detail-row {
+  display: flex;
+
+  gap: 20px;
+
+  align-items: center;
+
+  text-align: left;
+
+  padding: 20px 8px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-symbol {
+  width: 45px;
+
+  text-align: center;
+
+  font-size: 23px;
+}
+
+.detail-row div {
+  display: grid;
+
+  gap: 5px;
+}
+
+.detail-row strong {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 24px;
+
+  color: var(--wine);
+}
+
+.detail-row span {
+  font-size: 11px;
+
+  color: var(--muted);
+
+  letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   BLESSING SECTION
+   ========================================================= */
+
+.blessing-section {
+  background:
+    linear-gradient(
+      rgba(33, 12, 10, 0.92),
+      rgba(33, 12, 10, 0.96)
+    ),
+    url("assets/couple.jpg") center / cover;
+
+  text-align: center;
+
+  color: white;
+}
+
+.blessing-section h2 {
+  color: white;
+}
+
+.blessing-section p:not(.eyebrow):not(.signature) {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 22px;
+
+  line-height: 1.6;
+
+  color: rgba(255, 250, 240, 0.82);
+}
+
+.big-quote {
+  font-family: Georgia, serif;
+
+  font-size: 80px;
+
+  color: var(--gold);
+
+  height: 45px;
+}
+
+.signature {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+
+  line-height: 1.6;
+
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  text-align: center;
+
+  padding: 65px 20px 35px;
+
+  background: #100706;
+
+  color: rgba(255, 250, 240, 0.7);
+}
+
+.footer-ornament {
+  color: var(--gold);
+
+  font-size: 24px;
+}
+
+.footer h2 {
+  font-family: "Great Vibes", cursive;
+
+  font-size: 62px;
+
+  font-weight: 400;
+
+  color: white;
+
+  margin: 10px 0;
+}
+
+.footer h2 span {
+  color: var(--gold);
+}
+
+.footer-events {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+
+  margin: 30px 0;
+}
+
+.footer-events a {
+  border-bottom: 1px solid var(--gold);
+
+  padding-bottom: 4px;
+
+  color: var(--gold-light);
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+}
+
+.copyright {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+   ========================================================= */
+
+.music-btn {
+  position: fixed;
+
+  right: 18px;
+
+  bottom: 18px;
+
+  z-index: 20;
+
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 50%;
+
+  border: 1px solid var(--gold);
+
+  background: var(--wine);
+
+  color: var(--gold-light);
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.22);
+
+  font-size: 21px;
+}
+
+.music-btn.playing {
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .events-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 560px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .event-card.featured,
+  .event-card.featured:hover {
+    transform: none;
+  }
+
+  .couple-layout {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+  .couple-copy {
+    text-align: center;
+  }
+
+  .couple-copy h2 {
+    line-height: 0.78;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .section {
+    padding: 72px 18px;
+  }
+
+
+  /* ==========================================
+     MOBILE HERO
+     ========================================== */
+
+  .hero {
+    min-height: 100svh;
+
+    /*
+      Slightly different position on mobile
+      because the portrait photograph fills
+      the screen differently.
+    */
+
+    background-position: center 10%;
+  }
+
+  .hero-content {
+    width: 94%;
+
+    padding: 20px;
+
+    /*
+      Less upward movement on mobile
+      so the invitation remains balanced.
+    */
+
+    transform: translateY(-25px);
+  }
+
+  .deities {
+    font-size: 15px;
+
+    line-height: 1.5;
+  }
+
+  .invite-label {
+    margin-top: 24px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+  }
+
+  .hero h1 {
+    font-size: clamp(68px, 19vw, 105px);
+
+    line-height: 0.88;
+
+    margin-top: 14px;
+  }
+
+  .script {
+    font-size: 20px;
+  }
+
+  .hero-date {
+    letter-spacing: 3px;
+
+    font-size: 11px;
+  }
+
+  .scroll-link {
+    margin-top: 30px;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, 100px);
+  }
+
+  .family-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .couple-copy h2 {
+    font-size: 78px;
+  }
+
+  .photo-frame {
+    inset: 12px -10px -10px 10px;
+  }
+
+  .footer h2 {
+    font-size: 50px;
+  }
+}
