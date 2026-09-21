@@ -159,23 +159,8 @@ button {
    HERO SECTION
    ========================================================= */
 
-/*
-  IMPORTANT:
-  couple.jpg is used as the full background image.
-
-  Expected folder structure:
-
-  index.html
-  style.css
-  script.js
-  assets/
-      couple.jpg
-      aaha-kalyanam.mp3
-*/
-
 .hero {
   min-height: 100vh;
-  min-height: 100svh;
 
   position: relative;
 
@@ -186,51 +171,37 @@ button {
 
   color: white;
 
-  overflow: hidden;
-
   /*
-    The photo is the actual hero background.
-    The position is slightly above center so
-    the groom's face remains visible.
-  */
-
-  background-image:
-    url("assets/couple.jpg");
-
-  background-size: cover;
-
-  background-position: center 28%;
-
-  background-repeat: no-repeat;
-}
-
-
-/* =========================================================
-   HERO DARK OVERLAY
-   ========================================================= */
-
-.hero-overlay {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 1;
-
-  /*
-    Keeps the photograph visible while making
-    the invitation text easy to read.
+    HERO IMAGE FIX
+    ----------------
+    The original couple photo is portrait-oriented.
+    16% keeps the groom's head/face visible while
+    avoiding the previous extreme top positioning.
   */
 
   background:
     linear-gradient(
-      to bottom,
-      rgba(18, 7, 6, 0.48) 0%,
-      rgba(18, 7, 6, 0.30) 35%,
-      rgba(18, 7, 6, 0.48) 65%,
-      rgba(18, 7, 6, 0.72) 100%
-    );
+      rgba(23, 8, 7, 0.46),
+      rgba(23, 8, 7, 0.80)
+    ),
+    url("assets/couple.jpg") center 16% / cover no-repeat;
+}
 
-  pointer-events: none;
+
+/* =========================================================
+   HERO OVERLAY
+   ========================================================= */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 12%,
+      rgba(12, 5, 4, 0.62) 100%
+    );
 }
 
 
@@ -243,24 +214,19 @@ button {
 
   z-index: 2;
 
-  width: min(1000px, 92%);
+  width: min(900px, 92%);
 
   padding: 30px;
 
   /*
-    Keep the invitation centered without moving
-    it too far over the people in the photograph.
+    Move the text slightly upward so that
+    it doesn't sit directly on the groom's face.
   */
 
-  transform: translateY(-35px);
+  transform: translateY(-55px);
 
   text-align: center;
 }
-
-
-/* =========================================================
-   HERO TEXT
-   ========================================================= */
 
 .deities {
   margin: 14px 0;
@@ -270,9 +236,6 @@ button {
   font-size: 18px;
 
   color: var(--gold-light);
-
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 .invite-label {
@@ -281,9 +244,6 @@ button {
   letter-spacing: 4px;
 
   margin-top: 30px;
-
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.55);
 }
 
 .hero h1 {
@@ -297,8 +257,13 @@ button {
 
   margin: 18px 0 10px;
 
+  /*
+    Keep the names above the image subjects
+    visually as much as possible.
+  */
+
   text-shadow:
-    0 4px 18px rgba(0, 0, 0, 0.55);
+    0 3px 15px rgba(0, 0, 0, 0.28);
 }
 
 .hero h1 span {
@@ -311,9 +276,6 @@ button {
   font-size: 25px;
 
   font-style: italic;
-
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-date {
@@ -326,9 +288,6 @@ button {
   font-weight: 600;
 
   color: var(--gold-light);
-
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.55);
 }
 
 .scroll-link {
@@ -342,10 +301,7 @@ button {
 
   text-transform: uppercase;
 
-  opacity: 0.95;
-
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.55);
+  opacity: 0.9;
 }
 
 
@@ -607,12 +563,7 @@ button {
 
   object-fit: cover;
 
-  /*
-    Keep the main couple photograph positioned
-    naturally inside the portrait frame.
-  */
-
-  object-position: center center;
+  object-position: center;
 
   position: relative;
 
@@ -627,8 +578,6 @@ button {
   inset: 18px -18px -18px 18px;
 
   border: 1px solid rgba(215, 181, 109, 0.55);
-
-  z-index: 0;
 }
 
 .couple-copy .eyebrow {
@@ -856,10 +805,10 @@ button {
 .blessing-section {
   background:
     linear-gradient(
-      rgba(33, 12, 10, 0.82),
-      rgba(33, 12, 10, 0.90)
+      rgba(33, 12, 10, 0.92),
+      rgba(33, 12, 10, 0.96)
     ),
-    url("assets/couple.jpg") center / cover no-repeat;
+    url("assets/couple.jpg") center / cover;
 
   text-align: center;
 
@@ -1071,11 +1020,12 @@ button {
     min-height: 100svh;
 
     /*
-      Mobile positioning.
-      Keep the upper part of the photograph visible.
+      Slightly different position on mobile
+      because the portrait photograph fills
+      the screen differently.
     */
 
-    background-position: center 22%;
+    background-position: center 10%;
   }
 
   .hero-content {
@@ -1083,7 +1033,12 @@ button {
 
     padding: 20px;
 
-    transform: translateY(-15px);
+    /*
+      Less upward movement on mobile
+      so the invitation remains balanced.
+    */
+
+    transform: translateY(-25px);
   }
 
   .deities {
@@ -1140,47 +1095,5 @@ button {
 
   .footer h2 {
     font-size: 50px;
-  }
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE DEVICES
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-  .hero {
-    background-position: center 18%;
-  }
-
-  .hero-content {
-    padding: 12px;
-  }
-
-  .hero h1 {
-    font-size: 64px;
-  }
-
-  .deities {
-    font-size: 14px;
-  }
-
-  .script {
-    font-size: 18px;
-  }
-
-  .hero-date {
-    font-size: 10px;
-    letter-spacing: 2px;
-  }
-
-  .countdown {
-    grid-template-columns: repeat(2, 90px);
-    gap: 10px;
-  }
-
-  .countdown strong {
-    font-size: 40px;
   }
 }
